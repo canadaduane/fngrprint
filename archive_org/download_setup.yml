@@ -38,7 +38,7 @@
   - name: prepare upcs config dir
     file: dest=/root/.config/rackspace-cloud state=directory
   - name: copy upcs config
-    copy: src=upcs.config dest=/root/.config/rackspace-cloud/config
+    copy: src=../config/upcs.config dest=/root/.config/rackspace-cloud/config
           owner=root group=root mode=0644
           force=yes
 
