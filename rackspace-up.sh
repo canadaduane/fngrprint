@@ -16,11 +16,11 @@ FLAVOR=4
 ) && (
   rm -f inventory.ini
 
-  echo "[crunch]" \
-  >inventory.ini
+  echo "[download]" \
+  >download.inventory
 
   rumm show servers \
   | fgrep ACTIVE \
-  | awk '{ print $8, 'server_idx=' NR-1 }' \
-  >> inventory.ini
+  | awk '{ print $8, "server_idx=" NR-1 }' \
+  >> download.inventory
 )

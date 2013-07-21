@@ -1,14 +1,10 @@
 ---
-- name: crunch
+- name: download_setup
   hosts: all
   user: root
 
   vars:
     upcs_version: 436eef9e32e02dd574a1d10d277362fe32d952b0 # or 'master' for latest
-    hosts_size: "{{ groups['crunch'] | length }}"
-    archive_org_page_total: 680
-    archive_org_page_first: "{{ (archive_org_page_total // (groups['crunch']|length) * (server_idx|int)) + 1}}"
-    archive_org_page_last: "{{ archive_org_page_total // (groups['crunch']|length) * ((server_idx|int)+1) }}"
 
 # git vim gpm ctags vim-doc vim-scripts
   tasks:
@@ -54,5 +50,3 @@
           force=yes
   - name: install download script gems
     gem: name=httparty version=0.8.3 state=present
-  - name: download
-    command: "ruby download_books.rb {{archive_org_page_first}} {{archive_org_page_last}} chdir=/root/download"
