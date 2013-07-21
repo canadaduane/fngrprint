@@ -49,10 +49,10 @@
   - name: prepare download script dir
     file: dest=/root/download state=directory
   - name: copy download script
-    copy: src=download_all_books.rb dest=/root/download/download_all_books.rb
+    copy: src=download_books.rb dest=/root/download/download_books.rb
           owner=root group=root mode=0644
           force=yes
   - name: install download script gems
     gem: name=httparty version=0.8.3 state=present
   - name: download
-    command: "ruby download_all_books.rb {{archive_org_page_first}} {{archive_org_page_last}} chdir=/root/download"
+    command: "ruby download_books.rb {{archive_org_page_first}} {{archive_org_page_last}} chdir=/root/download"
