@@ -1,0 +1,4 @@
+RCLOUD_API_USER=username
+RCLOUD_API_KEY=key
+AUTH_VERSION=1
+AUTH_SERVER=https://auth.api.rackspacecloud.com/v1.0
